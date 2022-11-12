@@ -1,0 +1,68 @@
+.content
+{
+    border: 1px solid black; 
+    height:auto;
+    width: 74%;
+    margin-top: 5px;
+    margin-left: 5px;
+    float: right;
+}
+.list
+{
+    padding: 0;
+    margin:0;
+    list-style: none;
+    width: 100%;
+    /* box-shadow: 0 2px 70px 10 rgba(110,130,208, .18);
+    border-radius: 5px;
+    margin-bottom: 20px; */
+    
+}
+.list li
+{
+    width: 90%;
+    border: 1px solid black;
+    margin: 23px;
+    /* float: left; */
+    /* background: pink; */
+    height: 220px;
+}
+.list h5
+{
+    margin-top: 30px;
+    margin-right: 500px;
+}
+.list h7 
+{
+    margin-top: 30px;
+    margin-right: 600px;
+    word-spacing: 5px;
+   
+}
+.list h8
+{
+    margin-top: 30px;
+    margin-right: 600px;
+}
+.list button
+{
+    float: left;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+.list li img
+{
+    float: left;
+    width: 6%;
+    padding-bottom:5px ;
+    margin-left: 30px;
+}
+.list li a
+{
+    text-decoration: none;
+}
+.job-other-info
+{
+    position: relative;
+    display: flex;
+}
