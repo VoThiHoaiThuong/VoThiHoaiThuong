@@ -32,22 +32,28 @@
           {
             include("main/lienhe.php");
           }
-          elseif($tam=='dk')
-          {
-            include("main/dk.php");
-          }
           elseif($tam=='dkntd')
           {
             include("main/dkntd.php");
           }
-          elseif($tam=='chitietvieclam')
+          elseif($tam=='dk')
           {
-            include("main/chitietvieclam.php");
+            include("main/dk.php");
+          }
+          elseif($tam=='dangnhap')
+          {
+            include("main/dn.php");
+          }
+          elseif($tam=='dangnhapntd')
+          {
+            include("main/dnntd.php");
           }
           else
           {
             include("main/index.php");
           }
+      
+
        ?> 
       
     </div>

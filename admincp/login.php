@@ -7,8 +7,8 @@
         $sql = "select * from admin where username='$taikhoan' and password='$matkhau'limit 1";
         $query=$mysqli->query($sql);
 		$nums=$query->num_rows;
-        // $row = mysqli_query($mysqli, $sql);
-        //  $run=$mysqli->query($sql);
+        $row = mysqli_query($mysqli, $sql);
+         $run=$mysqli->query($sql);
         if($nums>0){
             $_SESSION['dangnhap']=$taikhoan;
             header("Location:index.php");

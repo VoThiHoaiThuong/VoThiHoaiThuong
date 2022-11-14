@@ -1,6 +1,8 @@
  <?php
-  include("admincp/config/config.php");
- ?>
+ if (isset($_SESSION['email'])){
+  unset($_SESSION['email']);
+  }
+ ?> 
  
  <div id="title">
           <nav class="navbar navbar-expand-lg ">
@@ -12,8 +14,6 @@
               <div class="navbarnav" id="navbarNav">
                 <h2>Đăng ký</h2><br>
                 <h6><a href="index.php">Trang chủ</a> / Đăng ký</h6>
-             
-               
               </div>
             </nav>
       </div>
@@ -22,26 +22,9 @@
     
     <div class="maincontent1">
     
-    <?php
-	// session_start();
-	if(isset($_POST['dk'])) {
-		$tenungvien = $_POST['tenungvien'];
-		$email = $_POST['email'];
-		$matkhau = md5($_POST['matkhau']);
-		$sql_dangky ="INSERT INTO dangky(tenungvien,email,matkhau) VALUE('".$tenungvien."','".$email."','".$matkhau."')";
-    $result= mysqli_query($mysqli,$sql_dangky);
-
-    if($result){
-			echo '<h5 style="color:green; right:50px;">Bạn đã đăng ký thành công</h5>';
-		}
-	}
-?>
-
-
-
 <span style="font-size: 24px; color:blue; padding: 0px 40px;">Đăng ký thành viên</span>
 <style type="text/css">
-	table.dangky tr td {
+	table.dkk tr td {
 	    padding: 10px ;
 		
 		
@@ -61,7 +44,7 @@
 
 
 <form action="" method="POST">
-<table class="dangky" border="5" style="border-collapse: collapse;">
+<table class="dk" border="5" style="border-collapse: collapse;">
 	
 	
    <!-- Pills navs -->
@@ -138,12 +121,36 @@
 	</tr>
   
 	<tr>
-		<td><input style="font-size: 20px;" type="submit" name="dk" value="Đăng ký" class="btn btn-primary btn-block" ></td<>
+		<td><input style="font-size: 20px;" type="submit" name="dk" value="Đăng ký" class="btn btn-primary btn-block" href="index.php"></td>
 		<td><a href="index.php?quanly=dangnhap" style="font-size: 20px;"> Đăng nhập nếu có tài khoản </a></td> 
 	</tr>
 </table>
 
 </form>
+
+<?php
+	// session_start();
+	if(isset($_POST['dk'])) {
+		$tenungvien = $_POST['tenungvien'];
+		$email = $_POST['email'];
+		$matkhau = ($_POST['matkhau']);
+    $sql_dangky ="INSERT INTO dangky(tenungvien,email,matkhau) VALUE('".$tenungvien."','".$email."','".$matkhau."')";
+    $result= mysqli_query($mysqli,$sql_dangky) ;
+    $matkhau = md5($matkhau);
+  
+    if (!$tenungvien || !$matkhau || !$email ) {
+			echo "Vui lòng nhập đầy đủ thông tin. <a href=index.php?quanly=dk>Trở lại</a>";
+        exit;
+		}
+   
+    else{
+			
+      echo "<h5 style='color:green; right:50px;'>Bạn đã đăng ký thành công <a href='index.php'>Về trang chủ</a></h5>";
+      $_SESSION['dk'] = $email;
+		}
+	}
+?>
+
 
 
     </div>

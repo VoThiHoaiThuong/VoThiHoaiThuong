@@ -54,18 +54,6 @@
     background: transparent;
     border: 1px solid #fff;
 }
-
-.btn-login{
-    background-color: #fff !important;
-    border-radius: 7px !important;
-    padding: 10px 20px !important;
-    border: none !important;
-    color: #007bff !important;
-}
-.btn-login:hover{
-    color: #007bff !important;
-}
-
 .banner 
 {
     
@@ -417,7 +405,7 @@ footer icon
             text-align: center;
             /* margin: 2px; */
         } 
-        .title .navbar-toggler
+ .title .navbar-toggler
 {
     
     padding-right: 0 ;

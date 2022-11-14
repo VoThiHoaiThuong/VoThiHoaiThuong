@@ -1,4 +1,4 @@
-.content
+.content1
 {
     border: 1px solid black; 
     height:auto;
@@ -7,7 +7,7 @@
     margin-left: 5px;
     float: right;
 }
-.list
+.list1
 {
     padding: 0;
     margin:0;
@@ -18,7 +18,7 @@
     margin-bottom: 20px; */
     
 }
-.list li
+.list1 li
 {
     width: 90%;
     border: 1px solid black;
@@ -27,37 +27,40 @@
     /* background: pink; */
     height: 220px;
 }
-.list h5
+.list1 h5
 {
     margin-top: 30px;
     margin-right: 500px;
+    
 }
-.list h7 
+.list1 h7 
 {
-    margin-top: 30px;
-    margin-right: 600px;
+    bottom: 60px;
+    margin-right: 550px;
     word-spacing: 5px;
-   
 }
-.list h8
+.list1 h8
 {
     margin-top: 30px;
     margin-right: 600px;
 }
-.list button
+.list1 button
 {
     float: left;
-    margin-top: 40px;
-    margin-left: 40px;
+    /* margin-bottom:90px; */
+    /* left: 300px; */
+   
+
+    
 }
-.list li img
+.list1 li img
 {
     float: left;
     width: 6%;
-    padding-bottom:5px ;
+    padding-bottom:2px ;
     margin-left: 30px;
 }
-.list li a
+.list1 li a
 {
     text-decoration: none;
 }

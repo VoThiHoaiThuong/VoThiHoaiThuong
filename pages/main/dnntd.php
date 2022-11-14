@@ -13,8 +13,8 @@
               </button>
             
               <div class="navbarnav" id="navbarNav">
-                <h2>Đăng ký</h2><br>
-                <h6><a href="index.php">Trang chủ</a> / Đăng ký</h6>
+                <h2>Đăng nhập</h2><br>
+                <h6><a href="index.php">Trang chủ</a> / Đăng nhập nhà tuyển dụng</h6>
                
               </div>
             </nav>
@@ -25,9 +25,9 @@
     <div class="maincontent1">
     
   
-<span style="font-size: 24px; color:blue; padding: 0px 40px;">Đăng ký thành viên</span>
+<span style="font-size: 24px; color:blue; padding: 0px 40px;">Đăng nhập thành viên</span>
 <style type="text/css">
-	table.dkntd tr td {
+	table.dangnhapntd tr td {
 	    padding: 10px ;
 		
 		
@@ -36,7 +36,7 @@
    {
      padding: 50px 450px ;	
    }
-   .nav-item1 {
+   .nav-item4 {
 	/* margin-top: 5px; */
     padding-left:60px;
 	
@@ -47,13 +47,13 @@
 
 
 <form action="" method="POST">
-<table class="dkntd" border="5" style="border-collapse: collapse;">
+<table class="dangnhapntd" border="5" style="border-collapse: collapse;">
 	
 	
    <!-- Pills navs -->
 <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
 
-<li class="nav-item1" role="presentation">
+<li class="nav-item4" role="presentation">
     <a
       class="nav-link"
       id="tab-login"
@@ -62,12 +62,12 @@
       role="tab"
       aria-controls="pills-login"
       aria-selected="false"
-      >Đăng ký ứng viên </a
+      >Đăng nhập ứng viên </a
     >
   </li>
  
 
-<li class="nav-item1" role="presentation">
+<li class="nav-item4" role="presentation">
     <a
       class="nav-link active"
       id="tab-register"
@@ -76,7 +76,7 @@
       role="tab"
       aria-controls="pills-register"
       aria-selected="true"
-      >Đăng ký nhà tuyển dụng</a
+      >Đăng nhập nhà tuyển dụng</a
     >
   </li>
 
@@ -106,10 +106,6 @@
 </div>
 
 	<tr>
-		<td style="font-size:20px; ">Tên</td>
-		<td><input type="text" size="50" name="ten" class="form-control"></td>
-	</tr>
-	<tr>
 		<td style="font-size:20px;"><span>Email</span></td>
 		<td><input type="text" size="50" name="email" class="form-control"></td>
 	</tr>
@@ -119,8 +115,8 @@
 	</tr>
     
 	<tr>
-		<td><input style="font-size: 20px;" type="submit" name="dkntd" value="Đăng ký" class="btn btn-primary btn-block" href="index.php"></td<>
-		<td><a href="index.php?quanly=dangnhap" style="font-size: 20px;"> Đăng nhập nếu có tài khoản </a></td> 
+		<td><input style="font-size: 20px;" type="submit" name="dangnhapntd" value="Đăng nhập" class="btn btn-primary btn-block" ></td<>
+		<td><a href="http://localhost:8080/web_vieclam/admin/login.php" style="font-size: 20px;"> Đăng nhập Admin </a></td> 
 	</tr>
 </table>
 
@@ -128,26 +124,29 @@
 
 <?php
 	// session_start();
-	if(isset($_POST['dkntd'])) {
-		$ten = $_POST['ten'];
+	if(isset($_POST['dangnhapntd'])) {
+		
 		$email = $_POST['email'];
 		$matkhau = ($_POST['matkhau']);
 		
-		$sql_dangky ="INSERT INTO dknhatuyendung(ten,email,matkhau) VALUE('".$ten."','".$email."','".$matkhau."')";
-    $result= mysqli_query($mysqli,$sql_dangky) ;
+		$sql_dangnhap ="INSERT INTO dknhatuyendung(email,matkhau) VALUE('".$email."','".$matkhau."')";
+    $result= mysqli_query($mysqli,$sql_dangnhap) ;
 
     $matkhau = md5($matkhau);
-     if (!$ten || !$matkhau || !$email ) {
+     if (!$matkhau || !$email ) {
 			echo "Vui lòng nhập đầy đủ thông tin. <a href='index.php?quanly=dkntd'>Trở lại</a>";
         exit;
 		}
    
     else{
 			$_SESSION['dkntd'] = $email;
-      echo "<h5 style='color:green; right:50px;'>Bạn đã đăng ký thành công <a href='index.php'>Về trang chủ</a></h5>";
+      echo "<h5 style='color:green; right:50px;'>Bạn đã đăng nhập thành công <a href='index.php'>Về trang chủ</a></h5>";
 		}
 	}
 ?>
 
     </div>
 </div>
+
+
+

@@ -108,9 +108,9 @@
 
     </div>
     
-    <div class="content">
+    <div class="content1">
       <h3>Công ty nổi bật</h3>
-    <ul class="list">
+    <ul class="list1">
    <li>
     <a href=""> <h5> Product Designer / UI Designer </h5></a>
    <img src="https://goride.khosinhvien.com/uploads/demo/company/bc_company-1.png" alt="Netflix">
@@ -132,7 +132,7 @@
     <button class="btn btn-outline-success">Cấp bách</button>
   </li>
 </ul>
-<ul class="list">
+<ul class="list1">
    <li>
     <a href=""> <h5> Product Designer / UI Designer </h5></a>
    <img src="https://goride.khosinhvien.com/uploads/demo/company/bc_company-1.png" alt="Netflix">
@@ -154,7 +154,7 @@
     <button class="btn btn-outline-success">Cấp bách</button>
   </li>
 </ul>
-<ul class="list">
+<ul class="list1">
    <li>
     <a href=""> <h5> Product Designer / UI Designer </h5></a>
    <img src="https://goride.khosinhvien.com/uploads/demo/company/bc_company-1.png" alt="Netflix">
@@ -176,7 +176,7 @@
     <button class="btn btn-outline-success">Cấp bách</button>
   </li>
 </ul>
-<ul class="list">
+<ul class="list1">
    <li>
     <a href=""> <h5> Product Designer / UI Designer </h5></a>
    <img src="https://goride.khosinhvien.com/uploads/demo/company/bc_company-1.png" alt="Netflix">
@@ -198,7 +198,7 @@
     <button class="btn btn-outline-success">Cấp bách</button>
   </li>
 </ul>
-<ul class="list">
+<ul class="list1">
    <li>
     <a href=""> <h5> Product Designer / UI Designer </h5></a>
    <img src="https://goride.khosinhvien.com/uploads/demo/company/bc_company-1.png" alt="Netflix">
@@ -220,4 +220,5 @@
     <button class="btn btn-outline-success">Cấp bách</button>
   </li>
 </ul>
+</div>
 </div>
