@@ -22,7 +22,7 @@
     <ul class="listsidebar">
        <!-- <li><a href="index.php?quanly=vieclam&id=1">Tìm kiếm theo từ khóa</a></li> -->
        <li><h5>Tìm kiếm theo từ khóa</h5></li>
-        <div class="search text-center" > 
+        <div class="search text-center"> 
   
        <li>
        <!-- <input class="form1" list="datalistOptions"  type="text"  placeholder=" Tìm kiếm từ khóa..." name="tukhoa">  -->

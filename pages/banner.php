@@ -48,12 +48,19 @@
           {
             include("main/dnntd.php");
           }
+          elseif($tam=='thaydoimk')
+          {
+            include("main/thaydoimk.php");
+          }
+          elseif($tam=='thaydoimkntd')
+          {
+            include("main/thaydoimkntd.php");
+          }
           else
           {
             include("main/index.php");
           }
       
-
        ?> 
       
     </div>

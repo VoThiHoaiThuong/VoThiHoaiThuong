@@ -53,6 +53,15 @@
             {
                 include("modules/qlbvvl/sua.php");    
             }
+            elseif($tam=='qlbvct'&& $query=='them')
+            {
+                include("modules/qlbvct/them.php"); 
+                include("modules/qlbvct/lietke.php");    
+            }
+            elseif($tam=='qlbvct'&& $query=='sua')
+            {
+                include("modules/qlbvct/sua.php");    
+            }
 
             else
             {

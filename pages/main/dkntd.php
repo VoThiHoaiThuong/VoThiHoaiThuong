@@ -83,22 +83,22 @@
 
 </ul>
 	
-      <div class="text-center mb-3">
-        <h5   style=" margin-bottom: 20px;">Sign in with:</h5>
+<div class="text-center mb-3">
+        <h5   style=" margin-bottom: 20px;">Sign up with:</h5>
         <a href="http://fb.com/"><button type="button" class="btn btn-primary btn-floating mx-1">
        <i class="fab fa-facebook-f "></i>
         </button>
 		</a>
 
-        <button type="button" class="btn btn-primary btn-floating mx-1">
+       <a href="https://www.google.com/intl/vi/gmail/about/"><button type="button" class="btn btn-primary btn-floating mx-1">
           <i class="fab fa-google"></i>
         </button>
 
-        <button type="button" class="btn btn-primary btn-floating mx-1">
+        <a href="https://twitter.com/"><button type="button" class="btn btn-primary btn-floating mx-1">
           <i class="fab fa-twitter"></i>
         </button>
 
-        <button type="button" class="btn btn-primary btn-floating mx-1">
+        <a href="https://github.com/"><button type="button" class="btn btn-primary btn-floating mx-1">
           <i class="fab fa-github"></i>
         </button>
 

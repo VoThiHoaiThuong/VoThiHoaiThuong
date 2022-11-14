@@ -30,33 +30,53 @@
     <ul class="listsidebar">
        <!-- <li><a href="index.php?quanly=vieclam&id=1">Tìm kiếm theo từ khóa</a></li> -->
        
+       <li><h5>Tìm kiếm theo từ khóa</h5></li>
+        <div class="search text-center">
 
-  
 
+      <li>
+     <input class="form1" list="datalistOptions"   placeholder="   Tìm kiếm từ khóa..." > 
+    
+     <?php
      
-       <li>
-       <!-- <input class="form1" list="datalistOptions"  type="text"  placeholder=" Tìm kiếm từ khóa..." name="tukhoa">  -->
-     <input class="form1" list="datalistOptions"  placeholder="   Tìm kiếm từ khóa..." > 
-     <!-- <datalist id="datalistOptions">
-      <option value="Lập trình">
-      <option value="Thư kí">
-      <option value="Quản lí">
-      <option value="Seller">
-      <option value="Bán hàng">
-    </datalist>  -->
-       </li>
+     $sql_tk="SELECT *FROM baivietvl order by id_baiviet asc";
+
+     $query_tk=mysqli_query($mysqli,$sql_tk);
+     while($row_tk =mysqli_fetch_array($query_tk)){
+     
+     
+     ?>
+     <datalist id="datalistOptions">
+
+     <option value="<?php echo $row_tk['tenvieclam'] ?>"></option>
+   
+    
+     <?php
+     }
+     ?>
+      </datalist> 
+  </li> 
        
 
 
        <li><h5>Địa điểm</h5></li>
 
     <li>
-    <select class="form1 form-select-lg mb-3" aria-label=".form-select-lg example">
-    <option selected>Tất cả các thành phố</option>
-    <option value="1">San Francisco</option>
-    <option value="2">New York</option>
-    <option value="3">Seattle</option>
-    </select>
+  
+    <select name ="diadiem" class="form1 form-select-lg mb-3" aria-label=".form-select-lg example>
+      <?php
+      $sql_dd="select *from diadiem order by id_diadiem asc";
+      $query_dd=mysqli_query($mysqli,$sql_dd);
+      while($row_dd=mysqli_fetch_array($query_dd)){
+      ?>
+      
+      
+      <option value="<?php echo $row_dd['id_diadiem'] ?>"><?php echo $row_dd['tendiadiem'] ?></option>
+      <!-- <option selected>Tất cả các thành phố</option> -->
+      <?php
+      }
+      ?>
+      </select>
 
     </li> 
 

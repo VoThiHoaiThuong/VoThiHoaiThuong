@@ -105,7 +105,7 @@
                 <button class="dropbtn"><i class="fa fa-angle-down"></i></button>
                 <div class="dropdown-content">
                   <a href="http://localhost:8080/web_vieclam/ungcuvien/index.php">Tổng quan ứng viên</a>
-                  <a href="#">Đổi mật khẩu</a>
+                  <a href="index.php?quanly=thaydoimk">Đổi mật khẩu</a>
                   <a href="index.php?dangxuat=1">Đăng xuất</a>
                 </div>
             </div>
@@ -119,7 +119,7 @@
                          <button class="dropbtn"><i class="fa fa-angle-down"></i></button>
                          <div class="dropdown-content">
                            <a href="http://localhost:8080/web_vieclam/nhatuyendung/index.php">Tổng quan nhà tuyển dụng</a>
-                           <a href="#">Đổi mật khẩu</a>
+                           <a href="index.php?quanly=thaydoimkntd">Đổi mật khẩu</a>
                            <a href="index.php?dangxuat=2">Đăng xuất</a>
                          </div>
                      </div>
