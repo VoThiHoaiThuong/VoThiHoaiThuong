@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 15, 2022 lúc 05:42 AM
+-- Thời gian đã tạo: Th10 18, 2022 lúc 07:42 AM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 7.4.27
 
@@ -79,7 +79,7 @@ CREATE TABLE `baivietuv` (
   `id_baiviet` int(11) NOT NULL,
   `id_nganhnghe` int(11) NOT NULL,
   `tenungvien` varchar(255) NOT NULL,
-  `luong` varchar(255) NOT NULL,
+  `luong` int(255) NOT NULL,
   `id_diadiem` int(11) NOT NULL,
   `tenbaiviet` varchar(255) NOT NULL,
   `mota` varchar(255) NOT NULL,
@@ -93,8 +93,8 @@ CREATE TABLE `baivietuv` (
 --
 
 INSERT INTO `baivietuv` (`id_baiviet`, `id_nganhnghe`, `tenungvien`, `luong`, `id_diadiem`, `tenbaiviet`, `mota`, `hinhanh`, `ngaydang`, `tinhtrang`) VALUES
-(2, 1, 'Nguyễn Thấp Vân Anh', '10.000.000 đ', 2, 'Đơn xin ứng tuyển', '<p>GOOD</p>\r\n', 'asus.png', '1/11/2022', 1),
-(3, 1, 'Võ Thị Hoài Thương', '10.000.000 đ', 1, 'Bài đăng ứng tuyển', '<p>Good JOB</p>\r\n', 'meta.png', '6/11/2021', 1);
+(2, 1, 'Nguyễn Thấp Vân Anh', 10000, 2, 'Đơn xin ứng tuyển', '<p>GOOD</p>\r\n', 'asus.png', '1/11/2022', 1),
+(3, 1, 'Võ Thị Hoài Thương', 10, 1, 'Bài đăng ứng tuyển', '<p>Good JOB</p>\r\n', 'meta.png', '6/11/2021', 1);
 
 -- --------------------------------------------------------
 
@@ -106,7 +106,7 @@ CREATE TABLE `baivietvl` (
   `id_baiviet` int(11) NOT NULL,
   `id_nganhnghe` int(11) NOT NULL,
   `tenvieclam` varchar(255) NOT NULL,
-  `luong` varchar(255) NOT NULL,
+  `luong` varchar(300) NOT NULL,
   `id_diadiem` int(11) NOT NULL,
   `tenbaiviet` varchar(255) NOT NULL,
   `mota` varchar(255) NOT NULL,
@@ -120,8 +120,8 @@ CREATE TABLE `baivietvl` (
 --
 
 INSERT INTO `baivietvl` (`id_baiviet`, `id_nganhnghe`, `tenvieclam`, `luong`, `id_diadiem`, `tenbaiviet`, `mota`, `hinhanh`, `ngaydang`, `tinhtrang`) VALUES
-(1, 1, 'Lập trình Java', '20.000.000 đ', 3, 'Bài đăng việc làm', '<p>GOOD</p>\r\n', 'asus.png', '1/11/2022', 1),
-(2, 2, 'Bán hàng online', '10.000.000 đ', 2, 'Tuyển nhân viên', '<p>GOOD</p>\r\n', 'acer.png', '13/11/2022', 1);
+(1, 1, 'Lập trình Java', '20000000', 3, 'Bài đăng việc làm', '<p>GOOD</p>\r\n', 'acer.png', '1/11/2022', 1),
+(2, 2, 'Bán hàng online', '10,000,000', 2, 'Tuyển nhân viên', '<p>GOOD</p>\r\n', 'amazon.png', '13/11/2022', 1);
 
 -- --------------------------------------------------------
 
@@ -141,38 +141,11 @@ CREATE TABLE `dangky` (
 --
 
 INSERT INTO `dangky` (`id_dk`, `tenungvien`, `email`, `matkhau`) VALUES
-(246, 'Võ Thị Hoài Thương', 'vothuong2122002@gmail.com', ''),
-(247, '', 'vothuong2122002@gmail.com', '12345678'),
-(248, '', 'vothuong2122002@gmail.com', '123'),
-(249, '', '', ''),
-(250, '', '', ''),
-(251, '', 'vothuong2122002@gmail.com', '12345678'),
-(252, '', 'vothuong2122002@gmail.com', '123'),
-(253, '', 'vothuong2122002@gmail.com', '123'),
-(254, '', 'vothuong2122002@gmail.com', '123'),
-(255, '', 'vothuong2122002@gmail.com', '123'),
-(256, '', 'vothuong2122002@gmail.com', '123'),
-(257, '', '', ''),
-(258, '', 'vothuong2122002@gmail.com', '123'),
-(259, '', 'vothuong2122002@gmail.com', '123'),
-(260, 'Võ Thị Hoài Thương', 'thuong@gmail.com', '12345678'),
-(261, '', 'vothuong2122002@gmail.com', '123'),
-(262, '', 'vothuong2122002@gmail.com', '123'),
-(263, '', 'vothuong2122002@gmail.com', '12345678'),
-(264, '', 'vothuong2122002@gmail.com', '123'),
-(265, '', 'vothuong2122002@gmail.com', '123'),
-(266, 'Võ Thị Hoài Thương', 'anh@gmail.com', '123456'),
-(267, '', 'vothuong2122002@gmail.com', '12345678'),
-(268, '', 'vothuong2122002@gmail.com', '123'),
-(269, '', 'vothuong2122002@gmail.com', '123'),
-(270, '', 'jizzky2122002@gmail.com', '123'),
-(271, 'Võ Thị Hoài Thương', 'thuong@gmail.com', '12345678'),
-(272, '', 'vothuong2122002@gmail.com', '123'),
-(273, '', 'vothuong2122002@gmail.com', '123'),
-(274, '', 'vothuong2122002@gmail.com', '123'),
-(275, '', 'vothuong2122002@gmail.com', '123'),
-(276, '', 'vothuong2122002@gmail.com', '123'),
-(277, '', 'vothuong2122002@gmail.com', '12345');
+(308, 'Võ Thị Hoài Thương', 'thuong@gmail.com', ''),
+(309, 'Võ Thị Hoài Thương', 'jizzky2122002@gmail.com', '12345678'),
+(310, 'Võ Thị Hoài Thương', 'jizzky2122002@gmail.com', '12345678'),
+(311, 'Võ Thị Hoài Thương', 'jizzky2122002@gmail.com', '25d55ad283aa400af464c76d713c07ad'),
+(312, 'Võ Thị Hoài Thương', 'vothuong2122002@gmail.com', '25d55ad283aa400af464c76d713c07ad');
 
 -- --------------------------------------------------------
 
@@ -195,7 +168,8 @@ INSERT INTO `diadiem` (`id_diadiem`, `tendiadiem`) VALUES
 (3, 'Hòa Bình'),
 (4, 'Nghệ An'),
 (5, 'Quảng Ninh'),
-(6, 'Hà Nội');
+(6, 'Hà Nội'),
+(7, 'Tất cả các địa điểm');
 
 -- --------------------------------------------------------
 
@@ -209,25 +183,6 @@ CREATE TABLE `dknhatuyendung` (
   `email` varchar(255) NOT NULL,
   `matkhau` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `dknhatuyendung`
---
-
-INSERT INTO `dknhatuyendung` (`id_dk`, `ten`, `email`, `matkhau`) VALUES
-(39, 'Công ty trách nhiệm HH', 'thuong@gmail.com', '12345678'),
-(40, '', 'vothuong2122002@gmail.com', '123'),
-(41, 'Công ty trách nhiệm Sữa', 'jizzky2122002@gmail.com', '123'),
-(42, 'Công ty trách nhiệm Sữa', 'vothuong2122002@gmail.com', '123'),
-(43, '', 'vothuong2122002@gmail.com', '123'),
-(44, '', 'vothuong2122002@gmail.com', '123'),
-(45, '', '', ''),
-(46, '', 'vothuong2122002@gmail.com', '123'),
-(47, '', 'vothuong2122002@gmail.com', '123'),
-(48, '', 'vothuong2122002@gmail.com', '123'),
-(49, '', 'vothuong2122002@gmail.com', '123'),
-(50, '', 'vothuong2122002@gmail.com', '123'),
-(51, '', 'vothuong2122002@gmail.com', '123');
 
 -- --------------------------------------------------------
 
@@ -263,7 +218,8 @@ INSERT INTO `nganhnghe` (`id_nganhnghe`, `tennganhnghe`) VALUES
 (1, 'Lập trình '),
 (2, 'Bán hàng'),
 (3, 'Maketing'),
-(4, 'Trợ lý');
+(4, 'Trợ lý'),
+(5, 'Tất cả các ngành nghề');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -337,37 +293,37 @@ ALTER TABLE `baivietct`
 -- AUTO_INCREMENT cho bảng `baivietuv`
 --
 ALTER TABLE `baivietuv`
-  MODIFY `id_baiviet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_baiviet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `baivietvl`
 --
 ALTER TABLE `baivietvl`
-  MODIFY `id_baiviet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_baiviet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `dangky`
 --
 ALTER TABLE `dangky`
-  MODIFY `id_dk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=278;
+  MODIFY `id_dk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=313;
 
 --
 -- AUTO_INCREMENT cho bảng `diadiem`
 --
 ALTER TABLE `diadiem`
-  MODIFY `id_diadiem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_diadiem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `dknhatuyendung`
 --
 ALTER TABLE `dknhatuyendung`
-  MODIFY `id_dk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id_dk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT cho bảng `nganhnghe`
 --
 ALTER TABLE `nganhnghe`
-  MODIFY `id_nganhnghe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_nganhnghe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
