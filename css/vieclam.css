@@ -17,9 +17,64 @@ p{
     color: #000 !important;
  }
  
- .maincontent{
- 
+ div.checkbox{
+   width: 150px;
+   text-align: left !important;
+   margin-left: 100px;
+   cursor: pointer;
+}
+div.checkbox label{
+   cursor: pointer;
+}
+div.checkbox input{
+   margin-right: 10px;
+}
+
+.search-name-post{
+   padding: 0 20px;
+   outline: none;
+}
+
+.form-select-lg{
+   cursor: pointer;
+}
+
+.slider {
+/* -webkit-appearance: none; */
+   width: 200px;
+   height: 5px;
+   border-radius: 5px;
+   background: #007bff;
+   outline: none;
+   opacity: 0.7;
+   -webkit-transition: .2s;
+   transition: opacity .2s;
  }
+
+ .slider::-webkit-slider-thumb {
+   -webkit-appearance: none;
+   appearance: none;
+   width: 25px;
+   height: 25px;
+   border-radius: 50%;
+    background: DodgerBlue;
+   cursor: pointer;
+ }
+
+ .slider::-moz-range-thumb {
+   width: 25px;
+   height: 25px;
+   border-radius: 50%;
+   background: #4CAF50;
+   cursor: pointer;
+ }
+
+
+ .slidecontainer p{
+   font-size: 14px !important;
+ }
+
+
  
  .list-item{
     display: flex;
