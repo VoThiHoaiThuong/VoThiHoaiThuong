@@ -80,6 +80,12 @@
     <td><textarea name="mota" rows="10" style="resize:none"><?php echo $row['mota'] ?></textarea></td>
     <!-- style="resize: none; không được phép kéo -->
   </tr>
+
+  <tr>
+    <td>Nội dung</td>
+    <td><textarea name="noidung" rows="10" style="resize:none"><?php echo $row['noidung'] ?></textarea></td>
+    <!-- style="resize: none; không được phép kéo -->
+  </tr>
   
   <tr>
     <td>Hình ảnh</td>

@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/ungcuvien.css">
+
+    <link rel="stylesheet" type="text/css" href="css/nhatuyendung.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> -->
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <title>Ứng viên</title>
+    <title>Nhà tuyển dụng</title>
 </head>
 <?php
 	// session_start();
@@ -19,7 +20,7 @@
 	// } 
 	?>
 <body>
-    <h3 class="titleuv">Chào mừng nhà tuyển dụng </h3>
+    <h3 class="titlentd">Chào mừng nhà tuyển dụng </h3>
     <div class="wrapper">  
         <?php
         // có file config chỉ cần dùng ko cần gọi từng trang
@@ -36,6 +37,7 @@
     <script>
          CKEDITOR.replace( 'thongtinlienhe' );
          CKEDITOR.replace( 'mota' );
+         CKEDITOR.replace( 'noidung' );
     </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>  

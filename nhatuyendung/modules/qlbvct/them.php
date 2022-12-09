@@ -53,6 +53,13 @@
     <td><textarea name="mota" rows="10" style="resize:none;"></textarea></td>
     <!-- style="resize: none; không được phép kéo -->
   </tr>
+
+  <tr>
+    <td>Nội dung</td>
+    <td><textarea name="noidung" rows="10" style="resize:none;"></textarea></td>
+    <!-- style="resize: none; không được phép kéo -->
+  </tr>
+
   <tr>
     <td>Hình ảnh</td>
     <td><input type="file" name="hinhanh"></td>
