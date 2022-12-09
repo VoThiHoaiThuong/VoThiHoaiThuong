@@ -8,7 +8,7 @@
     
     $result= mysqli_query($mysqli,$sql_lietkebv) ;
 ?>
-<p>Liệt kê danh mục sản phẩm</p>
+<p>Hiển thị thông tin</p>
 <table border="1" width="100%" style="border-collapse: collapse;">
   <tr>
     <th>ID</th>
