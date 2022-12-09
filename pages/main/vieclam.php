@@ -28,54 +28,28 @@
 <div id="main">
     <div class ="sidebar">
     <ul class="listsidebar">
-       <!-- <li><a href="index.php?quanly=vieclam&id=1">Tìm kiếm theo từ khóa</a></li> -->
-       
        <li><h5>Tìm kiếm theo từ khóa</h5></li>
-        <div class="search text-center">
-
-
-      <li>
-     <input class="form1" list="datalistOptions"   placeholder="   Tìm kiếm từ khóa..." > 
-    
-     <?php
+       
      
-     $sql_tk="SELECT *FROM baivietvl order by id_baiviet asc";
-
-     $query_tk=mysqli_query($mysqli,$sql_tk);
-     while($row_tk =mysqli_fetch_array($query_tk)){
-     
-     
-     ?>
-     <datalist id="datalistOptions">
-
-     <option value="<?php echo $row_tk['tenvieclam'] ?>"></option>
+       <li>
+       <input class="form1 search-name-post" list="datalistOptions"  placeholder="Tìm kiếm từ khóa..." > 
    
-    
-     <?php
-     }
-     ?>
-      </datalist> 
-  </li> 
+       </li>
        
 
 
        <li><h5>Địa điểm</h5></li>
 
     <li>
-  
-    <select name ="diadiem" class="form1 form-select-lg mb-3" aria-label=".form-select-lg example>
-      <?php
-      $sql_dd="select *from diadiem order by id_diadiem asc";
-      $query_dd=mysqli_query($mysqli,$sql_dd);
-      while($row_dd=mysqli_fetch_array($query_dd)){
-      ?>
-      
-      
-      <option value="<?php echo $row_dd['id_diadiem'] ?>"><?php echo $row_dd['tendiadiem'] ?></option>
-      <!-- <option selected>Tất cả các thành phố</option> -->
-      <?php
-      }
-      ?>
+    <select style="outline: none" class="form1 form-select-lg mb-3 filter__city" aria-label=".form-select-lg example">
+      <option selected class="filter__city-item" value="0">Tất cả các thành phố</option>
+        <?php
+          $sql = "SELECT * FROM diadiem";
+          $query=mysqli_query($mysqli,$sql);
+          while($row = mysqli_fetch_array($query)){
+            echo '<option class="filter__city-item" value='.$row["id_diadiem"].'>'.$row["tendiadiem"].'</option>';
+          }
+        ?>
       </select>
 
     </li> 
@@ -83,59 +57,43 @@
     <li><h5>Ngành nghề</h5></li>
 
       <li>
-      <input class="form1 " list="datalistOptions"  type="text"  placeholder=" Tìm kiếm từ khóa..." name="tukhoa">
-            <!-- <input class="form" list="datalistOptions"  placeholder="   Tìm kiếm từ khóa..." > -->
-            <datalist id="datalistOptions">
-              <option value="Lập trình">
-              <option value="Thư kí">
-              <option value="Quản lí">
-              <option value="Seller">
-              <option value="Bán hàng">
-            </datalist> 
+      <select style="outline: none" class="form1 form-select-lg mb-3 filter__career" aria-label=".form-select-lg example">
+      <option class="filter__career-item" value="0" selected>Tất cả ngành nghề</option>
+        <?php
+          $sql = "SELECT * FROM nganhnghe";
+          $query=mysqli_query($mysqli,$sql);
+          while($row = mysqli_fetch_array($query)){
+            echo '<option class="filter__career-item" value='.$row["id_nganhnghe"].'>'.$row["tennganhnghe"].'</option>';
+          }
+        ?>
+      </select>
 
     </li>
     <li><h5>Ngày đăng</h5></li>
     <li>
         <div class="checkbox">
-          <label><input type="checkbox" value="">Tất cả</label>
+          <label><input type="checkbox" value="1">Tất cả</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox" value="">24 giờ qua</label>
+          <label><input type="checkbox" value="2">24 giờ qua</label>
         </div>
         <div class="checkbox ">
-          <label><input type="checkbox" value="" >7 ngày</label>
+          <label><input type="checkbox" value="3" >7 ngày</label>
         </div>
-        </li>
-<li><h5>Loại công việc</h5></li>
+      </li>
 <li>
 
 <!-- Default switch -->
-<div class="custom-control custom-switch">
-  <input type="checkbox" class="custom-control-input" id="customSwitches">
-  <label class="custom-control-label" for="customSwitches">Toggle this switch element</label>
-</div>
-<div class="custom-control custom-switch">
-  <input type="checkbox" class="custom-control-input" id="customSwitches1">
-  <label class="custom-control-label" for="customSwitches">Toggle this switch element</label>
-</div>
-<div class="custom-control custom-switch">
-  <input type="checkbox" class="custom-control-input" id="customSwitches2">
-  <label class="custom-control-label" for="customSwitches">Toggle this switch element</label>
-</div>
-<div class="custom-control custom-switch">
-  <input type="checkbox" class="custom-control-input" id="customSwitch2" disabled>
-  <label class="custom-control-label" for="customSwitch2">Toggle this switch element</label>
-</div>
-</li>
-<li><h5>Lương</h5></li>
-<li>
 
-<input type="range" class="form-range" width="700px" id="customRange1">
+<div class="slidecontainer">
+   <input type="range" min="6000000" max="50000000" value="50" class="slider" id="myRange">
+   <p>Mức lương tối thiểu: <span id="demo"></span></p>
+ </div>
 
     
-  </form>  
 </li>
-<input type="button" class="btn  btn-primary" value="Tìm việc">
+<input type="button" class="btn btn-search  btn-primary" value="Tìm việc">
+<input type="button" class="btn btn-renew  btn-primary" value="Làm Mới">
     </ul>
 
     </div>
@@ -148,24 +106,33 @@
    
   
      <?php
-        $sql = "SELECT * FROM baivietvl, nganhnghe, diadiem
-        WHERE baivietvl.id_nganhnghe = nganhnghe.id_nganhnghe 
-        AND baivietvl.id_diadiem = diadiem.id_diadiem ORDER BY id_baiviet ASC ";
-        $query=mysqli_query($mysqli,$sql);
-        while($row = mysqli_fetch_array($query)) {
-
+        if(isset($_GET['trang'])){
+          $trang=$_GET['trang'];
+        }else{
+          $trang=1;
+        }
+        $sosangpham1trang=3;
+        $phantrang=($trang*$sosangpham1trang)-$sosangpham1trang;
+        
+                $sql = "SELECT * FROM baivietvl, nganhnghe, diadiem
+                WHERE baivietvl.id_nganhnghe = nganhnghe.id_nganhnghe 
+                AND baivietvl.id_diadiem = diadiem.id_diadiem ORDER BY id_baiviet DESC LIMIT $phantrang,$sosangpham1trang ";
+                $query=mysqli_query($mysqli,$sql);
+           if ($query) {
+                while($row = mysqli_fetch_array($query)) {
+          
 ?>
 <div class="item">
                     <div class="item-top">
                         <div class="fix">
                         <div class="item-top-avt">
-                        <img width="100%" src="nhatuyendung/modules/qlbvvl/uploads/<?php echo $row['hinhanh'] ?>"> 
+                        <img width="100%" src="./images/<?php echo $row['hinhanh'] ?>"> 
                         </div>
                         <div class="item-mid">
-                             <div class="item-mid-title"><a target="_blank" href=""><?php echo $row['tenvieclam'] ?></a></div> 
+                            <div class="item-mid-title"><a target="_blank" href="index.php?quanly=chitietvieclam&idPost=<?php echo $row['id_baiviet']?>"><?php echo $row['tenvieclam'] ?></a></div> 
                             <div class="item-top-info">
-                            <p class="item-top-text"><i class="fa-solid fa-bag-shopping"></i><?php echo $row['tennganhnghe']?></p>
-                            <p class="item-top-text"><i class="fa-solid fa-location-dot"></i><?php echo $row['tendiadiem'] ?></p>
+                            <p class="item-top-text item-top-text-career" data="<?php echo $row['id_nganhnghe']?>"><i class="fa-solid fa-bag-shopping"></i><?php echo $row['tennganhnghe']?></p>
+                            <p class="item-top-text item-top-text-city" data="<?php echo $row['id_diadiem']?>"><i class="fa-solid fa-location-dot"></i><?php echo $row['tendiadiem'] ?></p>
                             <p class="item-top-text"><i class="fa-solid fa-clock"></i><?php echo $row['ngaydang']?> </p>
                             <p class="item-top-text"><i class="fa-solid fa-money-bill"></i><?php echo $row['luong']?> </p>
                             </div>
@@ -181,12 +148,38 @@
                         </div>
                     </div>
                 </div>
-    <?php
+  <?php
     }
+  }
+    $sql_phantrang="SELECT * FROM baivietvl, nganhnghe, diadiem
+    WHERE baivietvl.id_nganhnghe = nganhnghe.id_nganhnghe 
+    AND baivietvl.id_diadiem = diadiem.id_diadiem ORDER BY id_baiviet DESC   ";
+    $query_phantrang=mysqli_query($mysqli,$sql_phantrang);
+    $row_phantrang=mysqli_num_rows($query_phantrang);
+    $sotrang=ceil($row_phantrang/$sosangpham1trang);
+    $tentrang="vieclam";
+    include('pages/main/phantrang.php');
     ?> 
     </div>
     </div>
 </div>
+
+<script>
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+
+  const numberFormat = new Intl.NumberFormat('vi-VN', {
+    style: 'currency',
+    currency: 'VND',
+  });
+
+  output.innerHTML = numberFormat.format(slider.value); 
+  slider.oninput = function() {
+    output.innerHTML = numberFormat.format(this.value);
+  }
+</script>
+
+<script src="js/vieclam.js"></script>
 
 </body>
 </html>

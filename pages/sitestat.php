@@ -8,7 +8,7 @@
               <div class="row">
                 <div class="col-6">
                   <div class="stats-box">
-                <a href=""> <i class="fa fa-solid fa-user"></i><span><small>100k +</small></span></a>   
+                <i class="fa fa-solid fa-user"></i><span><small>100k +</small></span></a>   
                    <p>JOB Seekers</p>
             </div>
                 </div>

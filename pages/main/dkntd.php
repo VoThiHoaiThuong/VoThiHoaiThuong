@@ -14,7 +14,7 @@
             
               <div class="navbarnav" id="navbarNav">
                 <h2>Đăng ký</h2><br>
-                <h6><a href="index.php">Trang chủ</a> / Đăng ký</h6>
+                <h6><a href="index.php">Trang chủ</a> / Đăng ký nhà tuyển dụng</h6>
                
               </div>
             </nav>
@@ -83,22 +83,22 @@
 
 </ul>
 	
-<div class="text-center mb-3">
-        <h5   style=" margin-bottom: 20px;">Sign up with:</h5>
+      <div class="text-center mb-3">
+        <h5   style=" margin-bottom: 20px;">Sign in with:</h5>
         <a href="http://fb.com/"><button type="button" class="btn btn-primary btn-floating mx-1">
        <i class="fab fa-facebook-f "></i>
         </button>
 		</a>
 
-       <a href="https://www.google.com/intl/vi/gmail/about/"><button type="button" class="btn btn-primary btn-floating mx-1">
+        <button type="button" class="btn btn-primary btn-floating mx-1">
           <i class="fab fa-google"></i>
         </button>
 
-        <a href="https://twitter.com/"><button type="button" class="btn btn-primary btn-floating mx-1">
+        <button type="button" class="btn btn-primary btn-floating mx-1">
           <i class="fab fa-twitter"></i>
         </button>
 
-        <a href="https://github.com/"><button type="button" class="btn btn-primary btn-floating mx-1">
+        <button type="button" class="btn btn-primary btn-floating mx-1">
           <i class="fab fa-github"></i>
         </button>
 
@@ -115,12 +115,12 @@
 	</tr>
     <tr>
 		<td style="font-size:20px;"><span>Mật khẩu</span></td>
-		<td><input type="text" size="50" name="matkhau" class="form-control"></td>
+		<td><input type="password" size="50" name="matkhau" class="form-control"></td>
 	</tr>
     
 	<tr>
 		<td><input style="font-size: 20px;" type="submit" name="dkntd" value="Đăng ký" class="btn btn-primary btn-block" href="index.php"></td<>
-		<td><a href="index.php?quanly=dangnhap" style="font-size: 20px;"> Đăng nhập nếu có tài khoản </a></td> 
+		<td><a href="index.php?quanly=dangnhapntd" style="font-size: 20px;"> Đăng nhập nếu có tài khoản </a></td> 
 	</tr>
 </table>
 
@@ -132,20 +132,30 @@
 		$ten = $_POST['ten'];
 		$email = $_POST['email'];
 		$matkhau = ($_POST['matkhau']);
-		
-		$sql_dangky ="INSERT INTO dknhatuyendung(ten,email,matkhau) VALUE('".$ten."','".$email."','".$matkhau."')";
-    $result= mysqli_query($mysqli,$sql_dangky) ;
-
-    $matkhau = md5($matkhau);
-     if (!$ten || !$matkhau || !$email ) {
-			echo "Vui lòng nhập đầy đủ thông tin. <a href='index.php?quanly=dkntd'>Trở lại</a>";
+    $sql_dk ="SELECT * FROM dknhatuyendung WHERE email='$email'";
+    $result= mysqli_query($mysqli,$sql_dk) ;
+    $num_rows = mysqli_num_rows($result);
+    
+    if ( !$email || !$matkhau || !$ten)
+    {
+        echo "Vui lòng nhập đầy đủ thông tin. <a href='index.php?quanly=dkntd'>Trở lại</a>";
         exit;
-		}
-   
-    else{
-			$_SESSION['dkntd'] = $email;
-      echo "<h5 style='color:green; right:50px;'>Bạn đã đăng ký thành công <a href='index.php'>Về trang chủ</a></h5>";
-		}
+    }
+    $matkhau = md5($matkhau);
+
+    if ($num_rows > 0){
+      echo "Email này đã có người dùng. Vui lòng chọn email khác. <a href='index.php?quanly=dkntd'>Trở lại</a>";
+      exit;
+  }
+  
+  $sql_dangky="INSERT INTO dknhatuyendung(ten,email,matkhau) VALUE('".$ten."','".$email."','".$matkhau."')";
+  $query= mysqli_query($mysqli,$sql_dangky) ;
+  //Thông báo quá trình lưu
+  if ($query){
+    $_SESSION['dkntd'] = $email;
+  echo "Quá trình đăng ký thành công. <a href='index.php'>Về trang chủ</a>";}
+else
+  echo "Có lỗi xảy ra trong quá trình đăng ký. <a href='dkntd.php'>Thử lại</a>";
 	}
 ?>
 

@@ -1,19 +1,6 @@
-<?php
-	if(isset($_POST['doimatkhau'])){
-		$email = $_POST['email'];
-		$matkhau_cu = md5($_POST['password_cu']);
-		$matkhau_moi = md5($_POST['password_moi']);
-		$sql = "SELECT * FROM dangky WHERE email='".$email."' AND matkhau='".$matkhau_cu."' LIMIT 1";
-		$row = mysqli_query($mysqli,$sql);
-		$count = mysqli_num_rows($row);
-		if($count>0){
-			$sql_update = mysqli_query($mysqli,"UPDATE dangky SET matkhau='".$matkhau_moi."'");
-			echo '<p style="color:green">Mật khẩu đã được thay đổi."</p>';
-		}else{
-			echo '<p style="color:red">Tài khoản hoặc Mật khẩu cũ không đúng,vui lòng nhập lại."</p>';
-		}
-	}
-?>
+
+
+
 <div id="title">
           <nav class="navbar navbar-expand-lg ">
               
@@ -53,7 +40,6 @@
 </style>
 
 
-
 <form action="" method="POST">
 <table class="thaydoimk" border="5" style="border-collapse: collapse;">
 	
@@ -70,7 +56,7 @@
       role="tab"
       aria-controls="pills-login"
       aria-selected="true"
-      >Đổi mk ứng viên </a
+      >Đăng ký ứng viên </a
     >
   </li>
  
@@ -84,37 +70,62 @@
       role="tab"
       aria-controls="pills-register"
       aria-selected="false"
-      >Đổi mk nhà tuyển dụng</a
+      >Đăng ký nhà tuyển dụng</a
     >
   </li>
 
 
-</ul>
+  </ul>
 
-    <tr>
-		<td style="font-size:20px; ">Email</td>
-		<td><input type="text" size="50" name="email" class="form-control"></td>
-	</tr>
-	<tr>
-		<td style="font-size:20px;"><span>Mật khẩu cũ</span></td>
-		<td><input type="text" size="50" name="password_cu" class="form-control"></td>
-	</tr>
-    <tr>
-		<td style="font-size:20px;"><span>Mật khẩu mới</span></td>
-		<td><input type="text" size="50" name="password_moi" class="form-control"></td>
-	</tr>
-  <tr>
-  <td >
-        <input style="font-size: 20px;" type="submit" name="thaydoimk" value="Đổi mật khẩu" class="btn btn-primary btn-block">			
-	</td>
-    <td><a href="index.php" style="text-decoration: none;font-size: 20px;">Trang chủ</a></td>
+<tr>
+<td style="font-size:20px; ">Email</td>
+<td><input type="text" size="50" name="email" class="form-control"></td>
+</tr>
+<tr>
+<td style="font-size:20px;"><span>Mật khẩu cũ</span></td>
+<td><input type="password" size="50" name="password_cu" class="form-control"></td>
+</tr>
+<tr>
+<td style="font-size:20px;"><span>Mật khẩu mới</span></td>
+<td><input type="password" size="50" name="password_moi" class="form-control"></td>
+</tr>
+<tr>
+<td >
+    <input style="font-size: 20px;" type="submit" name="thaydoimk" value="Đổi mật khẩu" class="btn btn-primary btn-block">			
+</td>
+<td><a href="index.php" style="text-decoration: none;font-size: 20px;">Trang chủ</a></td>
 
-  </tr>
-   
-	
+</tr>
 </table>
 
 </form>
+<?php
+	if(isset($_POST['thaydoimk'])){
+		$taikhoan = $_POST['email'];
+		$matkhau_cu = md5($_POST['password_cu']);
+		$matkhau_moi = md5($_POST['password_moi']);
+		$sql = "SELECT * FROM dangky WHERE email='".$taikhoan."' AND matkhau='".$matkhau_cu."' LIMIT 1";
+		
+    $result= mysqli_query($mysqli,$sql) ;
+    //Lấy mật khẩu trong database ra
+    $row = mysqli_fetch_array($result);
+    
+    // $matkhau_cu = md5($matkhau_cu);
+    // $matkhau_moi = md5($matkhau_moi);
+		if(mysqli_num_rows($result) >0){
+			$sql_update = mysqli_query($mysqli,"UPDATE dangky SET matkhau='".$matkhau_moi."'");
+			echo '<p style="color:green">Mật khẩu đã được thay đổi."</p>';
+      echo"<a href='index.php'>Về trang chủ</a>";
+      die();
+		}
+
+   
+			echo '<p style="color:red">Tài khoản hoặc Mật khẩu cũ không đúng</p>';
+      echo"<a href='index.php'>Về trang chủ</a>";
+      exit();
+	}
+?>
+
 
 
     </div>

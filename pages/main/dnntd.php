@@ -58,7 +58,7 @@
       class="nav-link"
       id="tab-login"
       data-mdb-toggle="pill"
-      href="index.php?quanly=dk"
+      href="index.php?quanly=dangnhap"
       role="tab"
       aria-controls="pills-login"
       aria-selected="false"
@@ -72,7 +72,7 @@
       class="nav-link active"
       id="tab-register"
       data-mdb-toggle="pill"
-      href="index.php?quanly=dkntd"
+      href="index.php?quanly=dangnhapntd"
       role="tab"
       aria-controls="pills-register"
       aria-selected="true"
@@ -82,24 +82,23 @@
 
 
 </ul>
-
-
-<div class="text-center mb-3">
+	
+      <div class="text-center mb-3">
         <h5   style=" margin-bottom: 20px;">Sign in with:</h5>
         <a href="http://fb.com/"><button type="button" class="btn btn-primary btn-floating mx-1">
        <i class="fab fa-facebook-f "></i>
         </button>
 		</a>
 
-       <a href="https://www.google.com/intl/vi/gmail/about/"><button type="button" class="btn btn-primary btn-floating mx-1">
+        <button type="button" class="btn btn-primary btn-floating mx-1">
           <i class="fab fa-google"></i>
         </button>
 
-        <a href="https://twitter.com/"><button type="button" class="btn btn-primary btn-floating mx-1">
+        <button type="button" class="btn btn-primary btn-floating mx-1">
           <i class="fab fa-twitter"></i>
         </button>
 
-        <a href="https://github.com/"><button type="button" class="btn btn-primary btn-floating mx-1">
+        <button type="button" class="btn btn-primary btn-floating mx-1">
           <i class="fab fa-github"></i>
         </button>
 
@@ -112,7 +111,7 @@
 	</tr>
     <tr>
 		<td style="font-size:20px;"><span>Mật khẩu</span></td>
-		<td><input type="text" size="50" name="matkhau" class="form-control"></td>
+		<td><input type="password" size="50" name="matkhau" class="form-control"></td>
 	</tr>
     
 	<tr>
@@ -130,20 +129,27 @@
 		$email = $_POST['email'];
 		$matkhau = ($_POST['matkhau']);
 		
-		$sql_dangnhap ="INSERT INTO dknhatuyendung(email,matkhau) VALUE('".$email."','".$matkhau."')";
+		$sql_dangnhap = "SELECT email, matkhau FROM dknhatuyendung WHERE email='$email'";
     $result= mysqli_query($mysqli,$sql_dangnhap) ;
-
-    $matkhau = md5($matkhau);
-     if (!$matkhau || !$email ) {
-			echo "Vui lòng nhập đầy đủ thông tin. <a href='index.php?quanly=dkntd'>Trở lại</a>";
+    //Lấy mật khẩu trong database ra
+    $row = mysqli_fetch_array($result);
+    if (mysqli_num_rows($result) == 0) {
+        echo "Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại. <a href='index.php?quanly=dangnhapntd>Trở lại</a>";
         exit;
-		}
-   
-    else{
-			$_SESSION['dkntd'] = $email;
-      echo "<h5 style='color:green; right:50px;'>Bạn đã đăng nhập thành công <a href='index.php'>Về trang chủ</a></h5>";
-		}
-	}
+    }
+    $matkhau = md5($matkhau);
+    //So sánh 2 mật khẩu có trùng khớp hay không
+    if ($matkhau != $row['matkhau']) {
+        echo "Mật khẩu không đúng. Vui lòng nhập lại. <a href='index.php?quanly=dangnhapntd'>Trở lại</a>";
+        exit;
+    }
+
+    $_SESSION['dkntd'] = $email;
+    // echo "Xin chào " . $username . ". Bạn đã đăng nhập thành công. <a href='/'>Về trang chủ</a>"
+    echo "<h5 style='color:green; right:50px;'>Bạn đã đăng nhập thành công </h5>";
+    echo"<a href='index.php'>Về trang chủ</a>";
+    die();
+  }
 ?>
 
     </div>

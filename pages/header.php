@@ -3,7 +3,11 @@
  if (isset($_SESSION['email'])){
   unset($_SESSION['email']);
   }
- 
+  ?>
+  <?php
+ if (isset($_SESSION['thaydoimk'])){
+  unset($_SESSION['thaydoimk']);
+  }
  
  ?>
 
@@ -17,6 +21,7 @@
       unset($_SESSION['dkntd']);
    }
 ?>
+
                  
                     
  <section id="header">
@@ -39,9 +44,6 @@
                   </li>
                   <li class="nav-item ">
                     <a class="nav-link" href="index.php?quanly=congty"> CÔNG TY</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.php?quanly=tintuc">TIN TỨC</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="index.php?quanly=lienhe">LIÊN HỆ</a>
@@ -96,12 +98,15 @@
 
                  
                        
-            <?php
-                   if(isset( $_SESSION['dk'] )){
+<?php
+                   if(isset( $_SESSION['dk'])){
                      echo "<b style='padding-left:300px; padding-top:10px;'> chào: " .$_SESSION['dk']. "</b>";
-                     
+                  
                     ?>  
+            
+                 
             <div class="dropdown">
+
                 <button class="dropbtn"><i class="fa fa-angle-down"></i></button>
                 <div class="dropdown-content">
                   <a href="http://localhost:8080/web_vieclam/ungcuvien/index.php">Tổng quan ứng viên</a>
@@ -109,62 +114,60 @@
                   <a href="index.php?dangxuat=1">Đăng xuất</a>
                 </div>
             </div>
-              
-                      <?php
-                          } elseif (isset( $_SESSION['dkntd'] )){
-                              echo "<b style='padding-left:300px; padding-top:10px;'> chào: " .$_SESSION['dkntd']. "</b>";
-                              
-                             ?>  
-                     <div class="dropdown">
-                         <button class="dropbtn"><i class="fa fa-angle-down"></i></button>
-                         <div class="dropdown-content">
-                           <a href="http://localhost:8080/web_vieclam/nhatuyendung/index.php">Tổng quan nhà tuyển dụng</a>
-                           <a href="index.php?quanly=thaydoimkntd">Đổi mật khẩu</a>
-                           <a href="index.php?dangxuat=2">Đăng xuất</a>
-                         </div>
-                     </div>
-                               
+                  
+            <?php
+           } elseif(isset( $_SESSION['dkntd'] )){
+              echo "<b style='padding-left:300px; padding-top:10px;'> chào: " .$_SESSION['dkntd']. "</b>";
+            
+              ?>
+                  
+                 <div class="dropdown">
+                <button class="dropbtn"><i class="fa fa-angle-down"></i></button>
+                <div class="dropdown-content">
+                  <a href="http://localhost:8080/web_vieclam/nhatuyendung/index.php">Tổng quan nhà tuyển dụng</a>
+                  <a href="index.php?quanly=thaydoimkntd">Đổi mật khẩu</a>
+                  <a href="index.php?dangxuat=2">Đăng xuất</a>
+                </div>
+            </div>
                   <?php
-                          }else{
+                    }else{
                   
                   ?>
-                
-                 <li>
-                   <a href="index.php?quanly=dkntd"></a>
-                  </li>
+               
+
                   <li class="btn-box">       
-                  <a class="btn btn-primary" href="index.php?quanly=dk">ĐĂNG NHẬP/ĐĂMG KÝ</a>
+                  <a class="btn btn-primary btn-login" href="index.php?quanly=dk">ĐĂNG NHẬP/ĐĂMG KÝ</a>
                   <li>
-                   <a href="index.php?quanly=dangnhap"></a>
-                  </li>
-                  <li>
-                   <a href="index.php?quanly=dangnhapntd"></a>
-                  </li>
-                </li> 
+                  <li>        
+                      <a href="index.php?quanly=dn"></a>
+                    </li>
+                    <li>        
+                      <a href="index.php?quanly=dnntd"></a>
+                    </li>
+
+                    <li>        
+                      <a href="index.php?quanly=dk"></a>
+                    </li>
+                    <li>        
+                      <a href="index.php?quanly=dkntd"></a>
+                    </li>
+                  <li>        
+                      <a href="index.php?quanly=thaydoimkntd"></a>
+                    </li>
+                    <li>        
+                      <a href="index.php?quanly=thaydoimk"></a>
+                    </li>
+
+
+
+                  
+                
 <?php
 }
 ?>
 
-
-              
-                        </ul>
+</ul>
                         </div>
-<!--                   
-                        <ul class="dropdown-menu text-left show" aria-labelledby="dropdownMenuUser" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 5px, 0px); top: 0px; left: 0px; will-change: transform;" x-out-of-boundaries="">
-                        <li class="menu">
-                          <a href="">Thông tin của tôi</a>
-                        </li>    
-
-                        <li class="menu-hr">
-                          <a href="">Đổi mật khẩu </a>
-                        </li>    
-                        <li class="menu-hr">
-                          <a href="">Tổng quan nhà tuyển dụng</a>
-                        </li>    
-                        <li class="menu-hr">
-                          <a href="">Đăng xuất</a>
-                        </li>                                              
-                        </ul>    -->
                 
              
             </nav>

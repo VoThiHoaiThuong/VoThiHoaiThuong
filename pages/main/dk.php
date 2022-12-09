@@ -1,10 +1,4 @@
- <?php
- if (isset($_SESSION['email'])){
-  unset($_SESSION['email']);
-  }
- ?> 
- 
- <div id="title">
+<div id="title">
           <nav class="navbar navbar-expand-lg ">
               
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +7,7 @@
             
               <div class="navbarnav" id="navbarNav">
                 <h2>Đăng ký</h2><br>
-                <h6><a href="index.php">Trang chủ</a> / Đăng ký</h6>
+                <h6><a href="index.php">Trang chủ</a> / Đăng ký ứng viên</h6>
               </div>
             </nav>
       </div>
@@ -32,6 +26,7 @@
    form
    {
      padding: 50px 450px ;	
+     clear: both;
    }
    .nav-item2 {
 	/* margin-top: 5px; */
@@ -90,22 +85,20 @@
        <a href="https://www.google.com/intl/vi/gmail/about/"><button type="button" class="btn btn-primary btn-floating mx-1">
           <i class="fab fa-google"></i>
         </button>
+  </a>
 
         <a href="https://twitter.com/"><button type="button" class="btn btn-primary btn-floating mx-1">
           <i class="fab fa-twitter"></i>
         </button>
+        </a>
 
-        <a href="https://github.com/"><button type="button" class="btn btn-primary btn-floating mx-1">
+        <a href=""><button type="button" class="btn btn-primary btn-floating mx-1">
           <i class="fab fa-github"></i>
         </button>
+        </a>
 
 		<h5  style=" margin-top: 20px;" > Or:</h5>
 </div>
-	<!-- <tr>
-
-		<a href="index.php?quanly=dangky" style="font-size: 20px;">Đăng ký ứng viên</a>//
-		<a href="index.php?quanly=dangky" style="font-size: 20px;">Đăng ký nhà tuyển dụng</a>
-	</tr>   	  -->
 
 	<tr>
 		<td style="font-size:20px; ">Tên</td>
@@ -117,11 +110,11 @@
 	</tr>
     <tr>
 		<td style="font-size:20px;"><span>Mật khẩu</span></td>
-		<td><input type="text" size="50" name="matkhau" class="form-control"></td>
+		<td><input type="password" size="50" name="matkhau" class="form-control"></td>
 	</tr>
   
 	<tr>
-		<td><input style="font-size: 20px;" type="submit" name="dk" value="Đăng ký" class="btn btn-primary btn-block" href="index.php"></td>
+		<td><input style="font-size: 20px;" type="submit" name="dk" value="Đăng ký" class="btn btn-primary btn-block" ></td>
 		<td><a href="index.php?quanly=dangnhap" style="font-size: 20px;"> Đăng nhập nếu có tài khoản </a></td> 
 	</tr>
 </table>
@@ -134,26 +127,35 @@
 		$tenungvien = $_POST['tenungvien'];
 		$email = $_POST['email'];
 		$matkhau = ($_POST['matkhau']);
-    $sql_dangky ="INSERT INTO dangky(tenungvien,email,matkhau) VALUE('".$tenungvien."','".$email."','".$matkhau."')";
-    $result= mysqli_query($mysqli,$sql_dangky) ;
-    $matkhau = md5($matkhau);
-  
-    if (!$tenungvien || !$matkhau || !$email ) {
-			echo "Vui lòng nhập đầy đủ thông tin. <a href=index.php?quanly=dk>Trở lại</a>";
+    $sql_dk ="SELECT * FROM dangky WHERE email='$email'";
+    $result= mysqli_query($mysqli,$sql_dk) ;
+    $num_rows = mysqli_num_rows($result);
+    
+    if ( !$email || !$matkhau || !$tenungvien)
+    {
+        echo "Vui lòng nhập đầy đủ thông tin. <a href='index.php?quanly=dk'>Trở lại</a>";
         exit;
-		}
-   
-    else{
-			
-      echo "<h5 style='color:green; right:50px;'>Bạn đã đăng ký thành công <a href='index.php'>Về trang chủ</a></h5>";
-      $_SESSION['dk'] = $email;
-		}
+    }
+    $matkhau = md5($matkhau);
+    if ($num_rows > 0){
+      echo "Email này đã có người dùng. Vui lòng chọn email khác. <a href='index.php?quanly=dk'>Trở lại</a>";
+      exit;
+  }
+  
+  $sql_dangky="INSERT INTO dangky(tenungvien,email,matkhau) VALUE('".$tenungvien."','".$email."','".$matkhau."')";
+  $query= mysqli_query($mysqli,$sql_dangky) ;
+  //Thông báo quá trình lưu
+  if ($query){
+    $_SESSION['dk'] = $email;
+  echo "Quá trình đăng ký thành công. <a href='index.php'>Về trang chủ</a>";}
+else
+  echo "Có lỗi xảy ra trong quá trình đăng ký. <a href='dk.php'>Thử lại</a>";
 	}
 ?>
 
-
-
     </div>
 </div>
+
+
 
 

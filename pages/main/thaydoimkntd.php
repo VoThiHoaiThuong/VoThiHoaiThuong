@@ -1,19 +1,4 @@
-<?php
-	if(isset($_POST['doimatkhau'])){
-		$email = $_POST['email'];
-		$matkhau_cu = md5($_POST['password_cu']);
-		$matkhau_moi = md5($_POST['password_moi']);
-		$sql = "SELECT * FROM dknhatuyendung WHERE email='".$email."' AND matkhau='".$matkhau_cu."' LIMIT 1";
-		$row = mysqli_query($mysqli,$sql);
-		$count = mysqli_num_rows($row);
-		if($count>0){
-			$sql_update = mysqli_query($mysqli,"UPDATE dknhatuyendung SET matkhau='".$matkhau_moi."'");
-			echo '<p style="color:green">Mật khẩu đã được thay đổi."</p>';
-		}else{
-			echo '<p style="color:red">Tài khoản hoặc Mật khẩu cũ không đúng,vui lòng nhập lại."</p>';
-		}
-	}
-?>
+
 <div id="title">
           <nav class="navbar navbar-expand-lg ">
               
@@ -54,7 +39,7 @@
 
 
 
-<form action="" method="POST">
+<form action=""   method="POST">
 <table class="thaydoimkntd" border="5" style="border-collapse: collapse;">
 	
 	
@@ -63,7 +48,7 @@
 
 <li class="nav-item6" role="presentation">
     <a
-      class="nav-link active "
+      class="nav-link  "
       id="tab-login"
       data-mdb-toggle="pill"
       href="index.php?quanly=thaydoimk"
@@ -77,7 +62,7 @@
 
 <li class="nav-item6" role="presentation">
     <a
-      class="nav-link "
+      class="nav-link active "
       id="tab-register"
       data-mdb-toggle="pill"
       href="index.php?quanly=thaydoimkntd"
@@ -97,11 +82,11 @@
 	</tr>
 	<tr>
 		<td style="font-size:20px;"><span>Mật khẩu cũ</span></td>
-		<td><input type="text" size="50" name="password_cu" class="form-control"></td>
+		<td><input type="password" size="50" name="password_cu" class="form-control"></td>
 	</tr>
     <tr>
 		<td style="font-size:20px;"><span>Mật khẩu mới</span></td>
-		<td><input type="text" size="50" name="password_moi" class="form-control"></td>
+		<td><input type="password" size="50" name="password_moi" class="form-control"></td>
 	</tr>
   <tr>
   <td >
@@ -115,6 +100,32 @@
 </table>
 
 </form>
+<?php
+	if(isset($_POST['thaydoimkntd'])){
+		$taikhoan = $_POST['email'];
+		$matkhau_cu = md5($_POST['password_cu']);
+		$matkhau_moi = md5($_POST['password_moi']);
+		$sql = "SELECT * FROM dknhatuyendung WHERE email='".$taikhoan."' AND matkhau='".$matkhau_cu."' LIMIT 1";
+		
+    $result= mysqli_query($mysqli,$sql) ;
+    //Lấy mật khẩu trong database ra
+    $row = mysqli_fetch_array($result);
+    
+    // $matkhau_cu = md5($matkhau_cu);
+    // $matkhau_moi = md5($matkhau_moi);
+		if(mysqli_num_rows($result) >0){
+			$sql_update = mysqli_query($mysqli,"UPDATE dknhatuyendung SET matkhau='".$matkhau_moi."'");
+			echo '<p style="color:green">Mật khẩu đã được thay đổi.</p>';
+      echo"<a href='index.php'>Về trang chủ</a>";
+      die();
+		}
+
+   
+			echo '<p style="color:red">Tài khoản hoặc Mật khẩu cũ không đúng"</p>';
+      echo"<a href='index.php'>Về trang chủ</a>";
+      exit();
+	}
+?>
 
 
     </div>

@@ -19,8 +19,11 @@
         </div>
         <div class="footer1" >
           <h4>Follow Us</h4>
-          <a  href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="http://fb.com/" target="_blank"><i class="fab fa-facebook-f  "></i></a>
+          <!-- <a  href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="http://fb.com/" target="_blank"><i class="fab fa-facebook-f "></i></a> -->
+
+          <a href="http://fb.com/" target="_blank"><p><img src="images/fb.png" width="30" height="30" ><font color="white"> Facebook </font> </p></a>
+          <a href="https://www.instagram.com/" target="_blank"><p><img src="images/insta.png" width="30" height="30" ><font color="white"> Instagram </font></p></a>
       </div>
     </div>
 </div>

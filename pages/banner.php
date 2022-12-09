@@ -24,10 +24,6 @@
           {
             include("main/congty.php");
           }
-          elseif($tam=='tintuc')
-          {
-            include("main/tintuc.php");
-          }
           elseif($tam=='lienhe')
           {
             include("main/lienhe.php");
@@ -56,11 +52,27 @@
           {
             include("main/thaydoimkntd.php");
           }
+          elseif($tam=='chitietvieclam')
+          {
+            include("main/chitietvieclam.php");
+          }
+          elseif($tam=='chitietcongty')
+          {
+            include("main/chitietcongty.php");
+          }
+          elseif($tam=='chitietungvien')
+          {
+            include("main/chitietungvien.php");
+          }
+      
+
+         
           else
           {
             include("main/index.php");
           }
       
+
        ?> 
       
     </div>

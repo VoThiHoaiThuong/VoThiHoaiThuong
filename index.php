@@ -7,6 +7,11 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="css/vieclam.css">
     <link rel="stylesheet" type="text/css" href="css/congty.css">
+    <link rel="stylesheet" type="text/css" href="css/chitietcongty.css">
+    <link rel="stylesheet" type="text/css" href="css/chitietvieclam.css">
+    <link rel="stylesheet" type="text/css" href="css/ungvien.css">
+    <link rel="stylesheet" type="text/css" href="css/chitietungvien.css">
+
     <title>Trang web tìm kiếm việc làm</title>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> -->
