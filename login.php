@@ -29,7 +29,7 @@ echo "Bạn đã đăng nhập thành công";
 vào trang chào mừng
 } else {
 // Nếu không, đăng nhập không thành công
-echo "Bạn đã đăng nhập không thành công"; }
+  {echo "Bạn đã đăng nhập không thành công"; }
 }
 ?>
 
