@@ -28,7 +28,7 @@ echo "Bạn đã đăng nhập thành công";
 // Thực hiện các hành động cần thiết, ví dụ như đưa người dùng vào trang chào mừng
 } else {
 // Nếu không, đăng nhập không thành công
-  {echo "Bạn đã đăng nhập không thành công"; }
+  echo "Bạn đã đăng nhập không thành công"; }
 }
 ?>
 
